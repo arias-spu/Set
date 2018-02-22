@@ -22,6 +22,7 @@ using std::string;
 class Set{
 	size_t _maxElement;
 	bool* _elements;
+	void PrintTrace(const string&)const;
   public:
 	Set(int);
 	Set(const Set&);
