@@ -23,6 +23,8 @@ void Set::PrintTrace(const string& details)const{
 
 Set::Set(int maxElement): _maxElement(maxElement){
 	_elements = new bool[maxElement];
+	for (size_t i = 0; i < _maxElements; i++)
+		_elements[i] = false;
 	PrintTrace("Set::Set(int)");
 }
 Set::Set(const Set& other): _maxElement(other._maxElement){
