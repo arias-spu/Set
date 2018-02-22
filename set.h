@@ -29,6 +29,7 @@ class Set{
 	~Set();
 	Set& operator=(const Set&);
 	string ToString()const;
+	void PrintDetails()const;
 	bool AddElement(unsigned int);
 	bool RemoveElement(unsigned int);
 	bool Contains(unsigned int);

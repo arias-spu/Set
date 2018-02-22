@@ -8,15 +8,17 @@
 using std::string;
 using std::stringstream;
 using std::setw;
+using std::left;
+using std::right;
 using std::cout;
 using std::endl;
 
 void Set::PrintTrace(const string& details)const{
 	cout << "----------------------------------------------" << endl;
-	cout << "*** " << setw(33) << details << "***" << endl;
-	cout << "*** this = " << setw(32) << this << "***" << endl;
+	cout << "*** " << left << setw(39) << details << "***" << endl;
+	cout << "*** this = " << left << setw(32) << this << "***" << endl;
 	cout << "----------------------------------------------" << endl;
-	cout << endl;
+	cout << right << endl;
 }
 
 Set::Set(int maxElement): _maxElement(maxElement){
@@ -37,16 +39,21 @@ Set::~Set(){
 Set& Set::operator=(const Set& rhs){
 	if (this != &rhs){
 		if (_maxElement != rhs._maxElement){
+			cout << "++ " << _elements << " ++" << endl;
 			if (_elements != nullptr)
 				delete[] _elements;
 			_maxElement = rhs._maxElement;
 			_elements = new bool[_maxElement];
+			cout << "++ " << _elements << " ++" << endl;
 		}
 		for (size_t i = 0; i < _maxElement; i++)
 			_elements[i] = rhs._elements[i];
 	}
 	PrintTrace("Set::operator=");
 	return *this;
+}
+void Set::PrintDetails()const{
+	cout << "this = " << this << " _elements = " << _elements << " _maxElement = " << _maxElement << endl;
 }
 string Set::ToString()const{
 	stringstream retVal;
